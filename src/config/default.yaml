@@ -1,0 +1,41 @@
+seed: 0
+version: 'mnist_without_sn'
+artifacts_loc: "/Users/vinay/Projects/uncertainty-estimates/src/artifacts/"
+is_training: True
+test_dataset: "ambiguousmnist"
+
+data:
+  dataset: "mnist"
+  path: "/Users/vinay/Projects/uncertainty-estimates/data-store"
+  split: [0.75]
+  batch_size: 200
+
+model:
+  arch: "resnet18"
+  arch_params:
+    spectral_normalization: False
+    mod: False
+    mnist: True
+    temp: 1
+    num_classes: 10
+  checkpoint_loc: ""
+  optimizer:
+    type: "Adam"
+    optim_params:
+      lr: 3e-4
+  loss: "cross_entropy"
+  cbs:
+      early_stop:
+        monitor: 'val_acc'
+        patience: 3
+        mode: "max"
+      checkpoint:
+        monitor: 'val_acc'
+        mode: "max"
+
+
+trainer:
+  log_every_n_steps: 1
+  max_epochs: 10
+
+

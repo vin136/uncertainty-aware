@@ -1,0 +1,18 @@
+program: run.py
+method: bayes
+name: "mnist-resnet18-spn"
+description: "Sweep over learning rate and temperature scaling"
+metric:
+  name: val_acc
+  goal: maximize
+parameters:
+  temp:
+    distribution: log_uniform
+    min: -1
+    max: 2
+
+# Essential for Hydra: no argument parsing
+command:
+  - ${env}
+  - ${interpreter}
+  - ${program}
