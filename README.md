@@ -1,6 +1,29 @@
 # uncertainty-estimates
-A project to find out a viable approach for quantifying the uncertainty of the model predictions.
 
+# Objective
+
+A project to find out a **practical approach** for quantifying the uncertainty of the model predictions.(in deep neural networks). Thus, training an auxillary generative model doesn't make the cut as it introduces a completely new problem.(accidental complexity). The objective is to strive to find a simple approach,that can be widely used in the industry. This is crucial for deploying many ML/NN based models in **high-stakes environments** as we should know when ***we can't trust the model outputs.**
+
+
+## Backgroud
+
+Naively using softmax probabilities to detect/quantify is wrong. They do not work. This has already been shown. Typically when fed unseen/out-of-sample data-point, softmax probabilities will still be high and would be statistically undecipherable from other insample points. 
+
+### Fate of naively using softmax outputs
+Below plot shows the histogram of the model(Resnet18)-entropies trained on MNIST on three data-groups - **unseen MNIST samples**,**FMNIST samples**,**Some ambiguos MNIST samples**(these are generated via an VAE ,esentially images that cannot be put into a unique class,like a digit that looks both like a 3 and 9.).
+
+<img width="1050" alt="Screen Shot 2022-01-21 at 2 01 46 PM" src="https://user-images.githubusercontent.com/21222766/150585087-76fe4392-217d-45d6-afaa-4e1bb304da01.png">
+
+I will spare further details as this is a work in progress but there exits a simple approach to not only identidy model uncertainty but also disambiguate between alaetoric and epistemic uncertainties. Check the below plot, on same samples, using a simple method, we can seperate between *same-distribution but oos* vs *different distribution* points.
+
+<img width="1026" alt="Screen Shot 2022-01-21 at 2 01 31 PM" src="https://user-images.githubusercontent.com/21222766/150587919-3ebfcfd4-3546-4ca7-bbac-1c31d460bab6.png">
+
+
+
+**Research scratch pad**.(**work in progress**)
+
+
+ Below is the notes to myself as i explore this problem.
 ## Step-1: Literature Survey
 ref1: [Safer Classification by Synthesis](https://arxiv.org/abs/1711.08534)
 
