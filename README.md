@@ -1,7 +1,6 @@
 # uncertainty-estimates
 
 
-
 # Objective
 
 A project to find out a **practical approach** for quantifying the uncertainty of the model predictions.(in deep neural networks). Thus, training an auxillary generative model doesn't make the cut as it introduces a completely new problem.(accidental complexity). The objective is to strive to find a simple approach,that can be widely used in the industry. This is crucial for deploying many ML/NN based models in **high-stakes environments** as we should know when ***we can't trust the model outputs.**
