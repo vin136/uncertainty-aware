@@ -21,6 +21,14 @@ I will spare further details as this is a work in progress but there exits a sim
 
 
 
+
+## Potential Questions to dig in
+- How to make it work with regression tasks ?(can we still disambiguate there)
+- Effect of architechtural changes, using transformers as a building block and testing on various tasks in NLP,CV etc.
+- Use this as novely detector and use it to direct exploration...rather than typical entropies used in RL.
+
+
+
 **Research scratch pad**.(**work in progress**)
 
 
